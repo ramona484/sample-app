@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+        
+      - uses: actions/checkout@master
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master
    
       - name: Scan current project
         uses: anchore/scan-action@v2
