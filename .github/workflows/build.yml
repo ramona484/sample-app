@@ -22,10 +22,7 @@ jobs:
         uses: anchore/scan-action@v2
         with:
           path: "."
-        
-      - uses: brpaz/hadolint-action@v1.2.1
-        with:
-          dockerfile: Dockerfile
+     
   
       - name: Docker meta
         id: docker_meta
@@ -56,6 +53,11 @@ jobs:
         with:
           tags: ${{ steps.docker_meta.outputs.tags }} 
           file: ./Dockerfile
+          
+      - name: Scan image
+        uses: anchore/scan-action@v2
+        with:
+         image: "ghcr.io/ramona484/app" 
           
           
       - name: Push image
