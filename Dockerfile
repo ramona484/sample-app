@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 
 LABEL maintainer="ramona"
 
-RUN adduser sasquatch -D
+RUN adduser ramona -D
 RUN apt-get install -y openssh-server
 
 ADD . /app
@@ -17,6 +17,6 @@ ENV APACHE_LOG_DIR /var/log/apache2
 
 EXPOSE 5000
 
-USER sasquatch
+USER ramona
 
 CMD python ./index.py
