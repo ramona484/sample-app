@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+   
+      - name: Scan current project
+        uses: anchore/scan-action@v2
+        with:
+          path: "."
         
       - uses: brpaz/hadolint-action@v1.2.1
         with:
