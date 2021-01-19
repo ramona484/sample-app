@@ -17,6 +17,15 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+        
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master
+   
+      - name: Scan current project
+        uses: anchore/scan-action@v2
+        with:
+          path: "."
+     
   
       - name: Docker meta
         id: docker_meta
@@ -47,6 +56,11 @@ jobs:
         with:
           tags: ${{ steps.docker_meta.outputs.tags }} 
           file: ./Dockerfile
+          
+      - name: Scan image
+        uses: anchore/scan-action@v2
+        with:
+         image: "ghcr.io/ramona484/app:master" 
           
           
       - name: Push image
