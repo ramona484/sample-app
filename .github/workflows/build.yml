@@ -57,7 +57,7 @@ jobs:
       - name: Scan image
         uses: anchore/scan-action@v2
         with:
-         image: "ghcr.io/ramona484/app" 
+         image: "ghcr.io/ramona484/app:master" 
           
           
       - name: Push image
