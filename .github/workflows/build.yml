@@ -22,9 +22,7 @@ jobs:
         with:
           dockerfile: Dockerfile
           
-      - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master 
-       
+         
       - name: Scan current project
         uses: anchore/scan-action@v2
         with:
