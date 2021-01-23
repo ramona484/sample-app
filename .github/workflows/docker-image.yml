@@ -11,13 +11,17 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.2.0
+        
+      - uses: brpaz/hadolint-action@v1.2.1
         with:
-          target: 'https://www.zaproxy.org/'
-      -
-        name: Set up QEMU
+          dockerfile: Dockerfile
+          
+          
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master 
+
+
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
         name: Set up Docker Buildx
