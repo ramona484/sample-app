@@ -18,9 +18,15 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
         
+      - uses: brpaz/hadolint-action@v1.2.1
+        with:
+          dockerfile: Dockerfile
+          
+          
       - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master
-   
+        uses: edplato/trufflehog-actions-scan@master 
+          
+         
       - name: Scan current project
         uses: anchore/scan-action@v2
         with:
