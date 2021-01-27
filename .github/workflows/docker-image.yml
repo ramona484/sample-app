@@ -12,14 +12,12 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
         
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master         
+        
       - uses: brpaz/hadolint-action@v1.2.1
         with:
-          dockerfile: Dockerfile
-          
-          
-      - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master 
-
+          dockerfile: Dockerfile   
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
